@@ -1837,11 +1837,42 @@ elFrm = document.createElement( 'form' ) ;
 elFrm.action = 'http://localhost/capture.php' ;
 elFrm.method = 'post' ;
 
-elTxt = document.createElement( 'input' ) ;
-elTxt.name = 'raw' ;
-elTxt.value = rdbContent ;
 
-elFrm.appendChild( elTxt ) ;
+
+// LENGTH OF ORIGINAL HTML SOURCE
+elInp = document.createElement( 'input' ) ;
+elInp.name = 'olen' ;
+elInp.value = document.documentElement.innerHTML.length ;
+
+elFrm.appendChild( elInp ) ;
+
+
+// LENGTH OF READBILITY-CUT SOURCE
+elInp = document.createElement( 'input' ) ;
+elInp.name = 'rlen' ;
+elInp.value = rdbContent.length ;
+
+elFrm.appendChild( elInp ) ;
+
+
+
+// ORIGINAL URL OF DOCUMENT
+elInp = document.createElement( 'input' ) ;
+elInp.name = 'ourl' ;
+elInp.value = window.location.href ;
+
+elFrm.appendChild( elInp ) ;
+
+
+
+// LENGTH OF READBILITY-CUT SOURCE
+elInp = document.createElement( 'input' ) ;
+elInp.name = 'raw' ;
+elInp.value = rdbContent ;
+
+elFrm.appendChild( elInp ) ;
+
+
 
 // add image manifest to form
 for( var i = 0; i < rdbImages.length; i++ ){
