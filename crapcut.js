@@ -1832,6 +1832,18 @@ rdbLinks   = elContent.getElementsByTagName( 'a' ) ;
 // alert( 'images found: ' + rdbImages.length ) ;
 
 
+elBody = document.getElementsByTagName('body')[0] ;
+
+elDiv = document.createElement( 'div' ) ;
+elDiv.style.background = '#000' ;
+elDiv.style.width = '400px' ;
+elDiv.style.height = '60px' ;
+elDiv.style.color = 'red' ;
+elDiv.style.fontSize = '20px' ;
+elDiv.innerHTML = 'CUTTING ...' ;
+
+elBody.appendChild( elDiv ) ;
+
 
 elFrm = document.createElement( 'form' ) ;
 elFrm.action = 'http://localhost/capture.php' ;
@@ -1893,6 +1905,9 @@ for( var i = 0; i < rdbLinks.length; i++ ){
     //       to weed out in-page anchors
     elFrm.appendChild( elLnkD ) ;
 }
+
+// Append into DOM so browsers like FireFox don't bitch
+elBody.appendChild( elFrm ) ;
 
 elFrm.submit() ;
 
